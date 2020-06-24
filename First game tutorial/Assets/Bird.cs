@@ -19,8 +19,9 @@ public class Bird : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<LineRenderer>().SetPosition(0, _initialPosition);
-        GetComponent<LineRenderer>().SetPosition(1, transform.position);
+        GetComponent<LineRenderer>().SetPosition(0, transform.position);
+        GetComponent<LineRenderer>().SetPosition(1, _initialPosition);
+        
 
         if (_birdWasLaunched && 
             GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1)
@@ -28,10 +29,10 @@ public class Bird : MonoBehaviour
             _timeSittingAround += Time.deltaTime;
         }
 
-        if (transform.position.y > 10 ||
-            transform.position.y < -10 ||
-            transform.position.x > 10 ||
-            transform.position.x < -10 ||
+        if (transform.position.y > 20 ||
+            transform.position.y < -20 ||
+            transform.position.x > 20 ||
+            transform.position.x < -20 ||
             _timeSittingAround > 3)
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
